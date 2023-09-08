@@ -1,0 +1,205 @@
+/* WorkExperience.css */
+
+h3 {
+  color: #948e8e;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  font-size: 22px;
+  font-weight: 400;
+}
+
+li {
+  list-style: none;
+}
+
+section {
+  margin-right: 50px;
+}
+
+h4 {
+  margin-top: 50px;
+}
+
+.company {
+  color: rgb(72, 69, 69);
+  font-family: Montserrat, sans-serif;
+  font-size: 15px;
+  font-weight: bolder;
+}
+
+#date {
+  color: rgb(72, 69, 69);
+  font-size: 10px;
+  font-family: Montserrat, sans-serif;
+  font-weight: 100;
+}
+
+.toFlexButton {
+  margin-top: -10px;
+}
+
+.text {
+  color: rgb(102, 103, 107);
+  font-family: Montserrat, sans-serif;
+  font-size: 12px;
+}
+
+p {
+  color: rgb(72, 69, 69);
+  font-family: Montserrat, sans-serif;
+  font-size: 12px;
+}
+
+.img {
+  float: right;
+  margin-top: -20px;
+  margin-right: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease; /* Added a smooth transition effect */
+}
+
+hr {
+  border-top: 1px solid #ccc;
+}
+
+@media only screen and (max-width: 600px) {
+  h4 {
+    margin-top: 20px;
+  }
+}
+
+/* Animation for fadeIn */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 1000px; /* Adjust the maximum height as needed */
+  }
+}
+
+/* Hide "more" content by default */
+.more {
+  opacity: 1;
+
+  overflow: hidden;
+  transition: opacity 0.3s ease, max-height 0.5s ease;
+}
+
+.always-visible{
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease, max-height 0.3s ease;
+  animation-delay: 10s;
+}
+
+
+
+/* Show the "div more" when clicking on the entire list item (line included) */
+li.open .more {
+  opacity: 1;
+  max-height: none;
+  animation: fadein 0.5s ease forwards, scrollAnimation 5s ease forwards;
+}
+
+/* Scroll animation */
+@keyframes scrollAnimation {
+  from {
+    max-height: 0;
+  }
+  to {
+    max-height: 1000px; /* Adjust the maximum height as needed */
+  }
+}
+
+@media print {
+  section {
+    margin: 0;
+  }
+
+  @page {
+    size: auto;
+    margin: 0;
+  }
+
+  h4 {
+    margin-top: 20px;
+  }
+
+  .img {
+    visibility: hidden;
+  }
+
+  hr {
+    visibility: hidden;
+  }
+
+  /* Ensure "more" content is always visible when printing */
+  .more {
+    opacity: 1;
+    max-height: none;
+  }
+}
+
+.fadeInDiv {
+ 
+
+  animation: fadein 1s ease both;
+  /*-webkit-animation: fadein 1s;*/
+  animation-delay: 0s;
+  
+}
+@keyframes fadein {
+  /* Firefox */
+  from {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+  to {
+    opacity: 1;
+    transform: scaleY(1);
+    height: 100%;
+  }
+}
+
+@-moz-keyframes fadein {
+  /* Firefox */
+  from {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+  to {
+    opacity: 1;
+    transform: scaleY(1);
+    height: 100%;
+  }
+}
+@-webkit-keyframes fadein {
+  /* Safari and Chrome */
+  from {
+    opacity: 0;
+    visibility: hidden;
+    transform: scaleY(0);
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+    transform: scaleY(1);
+    height: 100%;
+  }
+}
+@-o-keyframes fadein {
+  /* Opera */
+  from {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+  to {
+    opacity: 1;
+    transform: scaleY(1);
+    height: 100%;
+  }
+}

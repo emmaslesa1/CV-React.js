@@ -1,0 +1,161 @@
+section {
+  margin-top: 50px;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+    visibility: hidden;
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+@-moz-keyframes fadein {
+  /* Firefox */
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes fadein {
+  /* Safari and Chrome */
+  from {
+    opacity: 0;
+    visibility: hidden;
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+@-o-keyframes fadein {
+  /* Opera */
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes fadeout {
+  from {
+    opacity: 1;
+    visibility: visible;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+@-moz-keyframes fadeout {
+  /* Firefox */
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes fadeout {
+  /* Safari and Chrome */
+  from {
+    opacity: 1;
+    visibility: visible;
+  }
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+@-o-keyframes fadeout {
+  /* Opera */
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+
+/* Animation for fadeIn */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    opacity: 1;
+    max-height: 1000px; /* Adjust the maximum height as needed */
+  }
+}
+
+/* Hide "more" content by default */
+.more {
+  opacity: 1;
+
+  overflow: hidden;
+  transition: opacity 0.3s ease, max-height 0.5s ease;
+}
+
+.always-visible{
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease, max-height 0.3s ease;
+  animation-delay: 10s;
+}
+
+
+
+/* Show the "div more" when clicking on the entire list item (line included) */
+li.open .more {
+  opacity: 1;
+  max-height: none;
+  animation: fadeIn 0.5s ease forwards, scrollAnimation 5s ease forwards;
+}
+
+/* Scroll animation */
+@keyframes scrollAnimation {
+  from {
+    max-height: 0;
+  }
+  to {
+    max-height: 1000px; /* Adjust the maximum height as needed */
+  }
+}
+
+
+
+@media print {
+  section {
+    margin: 0;
+  }
+
+  @page {
+    size: auto;
+    margin: 0;
+  }
+
+  h4 {
+    margin-top: 20px;
+  }
+
+  .img {
+    visibility: hidden;
+  }
+
+  hr {
+    visibility: hidden;
+  }
+
+  /* Ensure "more" content is always visible when printing */
+  .more {
+    opacity: 1;
+    max-height: none;
+  }
+}
