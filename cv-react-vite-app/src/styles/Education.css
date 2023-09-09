@@ -1,0 +1,92 @@
+section {
+  margin-top: 50px;
+}
+
+.more {
+  opacity: 1;
+
+  overflow: hidden;
+  transition: opacity 0.3s ease, max-height 0.5s ease;
+}
+
+.always-visible{
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.3s ease, max-height 0.3s ease;
+  animation-delay: 10s;
+}
+
+li.open .more {
+  opacity: 1;
+  max-height: none;
+  animation: fadeIn 0.5s ease forwards, scrollAnimation 5s ease forwards;
+}
+
+
+
+
+@media print {
+  section {
+    margin: 0;
+  }
+
+  @page {
+    size: auto;
+    margin: 0;
+  }
+
+  h4 {
+    margin-top: 20px;
+  }
+
+  .img {
+    visibility: hidden;
+  }
+
+  hr {
+    visibility: hidden;
+  }
+
+  .more {
+    opacity: 1;
+    max-height: none;
+  }
+}
+
+@keyframes collapseMore {
+  from {
+    max-height: 0;
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  to {
+    max-height: 1000px; 
+    opacity: 1;
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+}
+
+@keyframes expandMore {
+  from {
+    max-height: 1000px; 
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-20px); 
+  }
+}
+
+.more.expandMore {
+  animation: expandMore 3s ease ;
+}
+
+
+.more.collapseMore {
+  animation: collapseMore 1.5s ease ;
+}
