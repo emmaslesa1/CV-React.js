@@ -12,26 +12,7 @@ function Education() {
 
   const { printing } = usePrintingContext();
 
-  const toggleMore = (company) => {
-    setMoreVisible((prevState) => ({
-      ...prevState,
-      [company]: !prevState[company],
-    }));
-  };
 
-  const showMore = (company) => {
-    setMoreVisible((prevState) => ({
-      ...prevState,
-      [company]: true,
-    }));
-  };
-
-  const hideMore = (company) => {
-    setMoreVisible((prevState) => ({
-      ...prevState,
-      [company]: false,
-    }));
-  }
 
   // Function to open the "more" content
   const openMore = (company) => {
@@ -48,16 +29,10 @@ function Education() {
     }));
   };
 
-  const handlePrint = () => {
-    // Open the "more" content for all sections
-    openMore('university');
-    // Trigger the print action
-    window.print();
-  };
   return (
     <section>
       <ul>
-        <li>
+        <li className={printing ? openMore('university') : ''}>
         <h3>Education</h3>
           <div>
             <h4 className="company">MIT University in United States <span id="date">(2013 - 2015)</span></h4>
@@ -65,7 +40,7 @@ function Education() {
               <p className="text">Graphic and multimedia design</p>
               <img
               src={isMoreVisible.university ? imgAdd : imgRemove}
-              className="img"
+              className={`img ${isMoreVisible.university ? 'expandImg' : ''}`}
               alt=""
               onClick={() => {
                 // Toggle the "more" content when clicking the image
@@ -78,17 +53,15 @@ function Education() {
             ></img>
             </div>
             {isMoreVisible.university && !printing && <hr className="line" />}
-            <div
-            className={`more animated-element ${
-              isMoreVisible.university ? 'fadeIn always-visible' : ''
-            }`}
-          >
-              <div className="deleteLine">
+            <div className={`more animated-element ${
+              isMoreVisible.university ? 'always-visible expandMore' : 'collapseMore'
+            }`}>
+              
                 <p>Details about education...</p>
                 <hr />
               </div>
             </div>
-          </div>
+          
         </li>
       </ul>
     </section>

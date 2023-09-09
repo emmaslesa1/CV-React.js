@@ -12,26 +12,6 @@ function WorkExperience() {
 
   const { printing } = usePrintingContext();
 
-  const toggleMore = (company) => {
-    setMoreVisible((prevState) => ({
-      ...prevState,
-      [company]: !prevState[company],
-    }));
-  };
-
-  const showMore = (company) => {
-    setMoreVisible((prevState) => ({
-      ...prevState,
-      [company]: true,
-    }));
-  };
-
-  const hideMore = (company) => {
-    setMoreVisible((prevState) => ({
-      ...prevState,
-      [company]: false,
-    }));
-  }
 
   // Function to open the "more" content
   const openMore = (company) => {
@@ -48,28 +28,21 @@ function WorkExperience() {
     }));
   };
 
-  const handlePrint = () => {
-    // Open the "more" content for all sections
-    openMore('microsoft');
-    openMore('otherCompany');
-    // Trigger the print action
-    window.print();
-  };
 
   return (
-    <section >
+    <section>
       <ul>
-        <li className={printing ? 'open' : ''}>
+        <li className={printing ? openMore('microsoft') : ''}>
           <h3>Work experience</h3>
           <h4 className="company">
             <strong>Microsoft </strong>
             <span id="date">( 2020 - present )</span>
           </h4>
-          <div className="toFlexButton ">
+          <div className="toFlexButton">
             <p className="text">Ceo, Product owner & Tech Lead</p>
             <img
               src={isMoreVisible.microsoft ? imgAdd : imgRemove}
-              className="img"
+              className={`img ${isMoreVisible.microsoft ? 'expandImg' : ''}`}
               alt=""
               onClick={() => {
                 // Toggle the "more" content when clicking the image
@@ -82,12 +55,9 @@ function WorkExperience() {
             ></img>
           </div>
           {isMoreVisible.microsoft && !printing && <hr className="line" />}
-          <div 
-            className={`more animated-element  ${
-              isMoreVisible.microsoft ? 'fadeInDiv always-visible' : ''
-            }`}
-          >
-            
+                      <div className={`more animated-element ${
+              isMoreVisible.microsoft ? 'always-visible expandMore' : 'collapseMore'
+            }`}>
               <p>
                 Details about your position
                 <br />
@@ -107,10 +77,10 @@ function WorkExperience() {
                 <span>- Figure out firebase</span>
               </p>
               <hr />
-            
-          </div>
+            </div>
+        
         </li>
-        <li className={printing ? 'open' : ''}>
+        <li className={printing ? openMore('otherCompany') : ''}>
           <h4 className="company">
             <strong>Other company </strong>
             <span id="date">( 2020 - 2021 )</span>
@@ -119,7 +89,7 @@ function WorkExperience() {
             <p className="text">Consultant and Full Stack Developer</p>
             <img
               src={isMoreVisible.otherCompany ? imgAdd : imgRemove}
-              className="img"
+              className={`img ${isMoreVisible.otherCompany ? 'expandImg' : ''}`}
               alt=""
               onClick={() => {
                 // Toggle the "more" content when clicking the image
@@ -134,7 +104,7 @@ function WorkExperience() {
           {isMoreVisible.otherCompany && !printing && <hr className="line" />}
           <div
             className={`more animated-element ${
-              isMoreVisible.otherCompany ? 'fadeIn always-visible' : ''
+              isMoreVisible.otherCompany ? 'always-visible expandMore' : 'collapseMore'
             }`}
           >
             <div className="deleteLine">

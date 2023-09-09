@@ -2,97 +2,6 @@ section {
   margin-top: 50px;
 }
 
-@keyframes fadein {
-  from {
-    opacity: 0;
-    visibility: hidden;
-  }
-  to {
-    opacity: 1;
-    visibility: visible;
-  }
-}
-@-moz-keyframes fadein {
-  /* Firefox */
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@-webkit-keyframes fadein {
-  /* Safari and Chrome */
-  from {
-    opacity: 0;
-    visibility: hidden;
-  }
-  to {
-    opacity: 1;
-    visibility: visible;
-  }
-}
-@-o-keyframes fadein {
-  /* Opera */
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@keyframes fadeout {
-  from {
-    opacity: 1;
-    visibility: visible;
-  }
-  to {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
-@-moz-keyframes fadeout {
-  /* Firefox */
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-@-webkit-keyframes fadeout {
-  /* Safari and Chrome */
-  from {
-    opacity: 1;
-    visibility: visible;
-  }
-  to {
-    opacity: 0;
-    visibility: hidden;
-  }
-}
-@-o-keyframes fadeout {
-  /* Opera */
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-
-/* Animation for fadeIn */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    max-height: 0;
-  }
-  to {
-    opacity: 1;
-    max-height: 1000px; /* Adjust the maximum height as needed */
-  }
-}
 
 /* Hide "more" content by default */
 .more {
@@ -111,7 +20,6 @@ section {
 }
 
 
-
 /* Show the "div more" when clicking on the entire list item (line included) */
 li.open .more {
   opacity: 1;
@@ -119,15 +27,6 @@ li.open .more {
   animation: fadeIn 0.5s ease forwards, scrollAnimation 5s ease forwards;
 }
 
-/* Scroll animation */
-@keyframes scrollAnimation {
-  from {
-    max-height: 0;
-  }
-  to {
-    max-height: 1000px; /* Adjust the maximum height as needed */
-  }
-}
 
 
 
@@ -158,4 +57,42 @@ li.open .more {
     opacity: 1;
     max-height: none;
   }
+}
+
+@keyframes collapseMore {
+  from {
+    max-height: 0;
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  to {
+    max-height: 1000px; /* Adjust the maximum height as needed */
+    opacity: 1;
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+}
+
+/* Animation for collapsing "more" content */
+@keyframes expandMore {
+  from {
+    max-height: 1000px; /* Adjust the maximum height as needed */
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-20px); /* Slide out to the top */
+  }
+}
+/* Apply the expandMore animation to the "more" content */
+.more.expandMore {
+  animation: expandMore 3s ease ;
+}
+
+/* Apply the collapseMore animation to the "more" content */
+.more.collapseMore {
+  animation: collapseMore 1.5s ease ;
 }

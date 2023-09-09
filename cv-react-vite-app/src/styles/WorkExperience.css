@@ -66,19 +66,46 @@ hr {
   h4 {
     margin-top: 20px;
   }
-}
-
-/* Animation for fadeIn */
-@keyframes fadeIn {
+  
+@keyframes collapseMore {
   from {
-    opacity: 0;
     max-height: 0;
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
   }
   to {
-    opacity: 1;
     max-height: 1000px; /* Adjust the maximum height as needed */
+    opacity: 1;
+    transform: scaleY(1);
+    transform-origin: top;
   }
 }
+
+/* Animation for collapsing "more" content */
+@keyframes expandMore {
+  from {
+    max-height: 1000px; /* Adjust the maximum height as needed */
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-20px); /* Slide out to the top */
+  }
+}
+/* Apply the expandMore animation to the "more" content */
+.more.expandMore {
+  animation: expandMore 3s ease ;
+}
+
+/* Apply the collapseMore animation to the "more" content */
+.more.collapseMore {
+  animation: collapseMore 1.5s ease ;
+}
+}
+
 
 /* Hide "more" content by default */
 .more {
@@ -102,24 +129,20 @@ hr {
 li.open .more {
   opacity: 1;
   max-height: none;
-  animation: fadein 0.5s ease forwards, scrollAnimation 5s ease forwards;
 }
 
-/* Scroll animation */
-@keyframes scrollAnimation {
-  from {
-    max-height: 0;
-  }
-  to {
-    max-height: 1000px; /* Adjust the maximum height as needed */
-  }
+.open{
+  opacity: 1;
+  max-height: none;
 }
 
 @media print {
   section {
     margin: 0;
   }
-
+  h3 {
+    margin-bottom: 10px;
+  }
   @page {
     size: auto;
     margin: 0;
@@ -137,69 +160,51 @@ li.open .more {
     visibility: hidden;
   }
 
-  /* Ensure "more" content is always visible when printing */
-  .more {
+}
+
+@keyframes collapseMore {
+  from {
+    max-height: 0;
+    opacity: 0;
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+  to {
+    max-height: 1000px; /* Adjust the maximum height as needed */
     opacity: 1;
-    max-height: none;
+    transform: scaleY(1);
+    transform-origin: top;
   }
 }
 
-.fadeInDiv {
- 
-
-  animation: fadein 1s ease both;
-  /*-webkit-animation: fadein 1s;*/
-  animation-delay: 0s;
-  
-}
-@keyframes fadein {
-  /* Firefox */
+/* Animation for collapsing "more" content */
+@keyframes expandMore {
   from {
-    opacity: 0;
-    transform: scaleY(0);
+    max-height: 1000px; /* Adjust the maximum height as needed */
+    opacity: 1;
+    transform: translateY(0);
   }
   to {
-    opacity: 1;
-    transform: scaleY(1);
-    height: 100%;
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-20px); /* Slide out to the top */
   }
+}
+/* Apply the expandMore animation to the "more" content */
+.more.expandMore {
+  animation: expandMore 3s ease ;
 }
 
-@-moz-keyframes fadein {
-  /* Firefox */
-  from {
-    opacity: 0;
-    transform: scaleY(0);
-  }
-  to {
-    opacity: 1;
-    transform: scaleY(1);
-    height: 100%;
-  }
+/* Apply the collapseMore animation to the "more" content */
+.more.collapseMore {
+  animation: collapseMore 3s ease ;
 }
-@-webkit-keyframes fadein {
-  /* Safari and Chrome */
-  from {
-    opacity: 0;
-    visibility: hidden;
-    transform: scaleY(0);
-  }
-  to {
-    opacity: 1;
-    visibility: visible;
-    transform: scaleY(1);
-    height: 100%;
-  }
-}
-@-o-keyframes fadein {
-  /* Opera */
-  from {
-    opacity: 0;
-    transform: scaleY(0);
-  }
-  to {
-    opacity: 1;
-    transform: scaleY(1);
-    height: 100%;
-  }
-}
+
+/* Apply always-visible styles to the "more" content during printing */
+
+
+
+/* ... Your existing CSS ... */
+
+/* Add these classes to your existing CSS */
+
