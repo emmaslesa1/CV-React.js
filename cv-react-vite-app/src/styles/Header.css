@@ -56,9 +56,38 @@ button {
   resize: block;
   transition-duration: 0.4s;
   letter-spacing: 2;
+  cursor: pointer;
 }
 
 .buttonGenerate{
+    border-width: 0;
+    padding: 10px;
+    font-weight: 600;
+    color: white;
+    background-color: #948E8E;
+    letter-spacing: 2px;
+    float: right;
+    animation: fadein 8s;
+}
+
+.buttonAddCv {
+  float: right;
+  /*margin-top: 10px;*/
+  margin-right: 5%;
+  animation: fadein 4s;
+  border-radius: 15px;
+  /*padding: 5px 5px;*/
+  font-family: Montserrat, sans-serif;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #948E8E;
+  resize: block;
+  transition-duration: 0.4s;
+  letter-spacing: 2;
+  cursor: pointer;
+}
+
+.buttonAddCv{
     border-width: 0;
     padding: 10px;
     font-weight: 600;

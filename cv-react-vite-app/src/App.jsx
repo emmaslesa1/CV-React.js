@@ -1,18 +1,25 @@
 // App.js
 import React from 'react';
-import Header from './components/Header';
-import Combined from './components/Combined';
 import './styles/style.css';
-import { PrintingProvider } from './components/PrintingContext';
+import AllComponents from './components/AllComponents';
+import  {BrowserRouter as Router, Route, Link, Routes} from 'react-router-dom';
+import FormCv from './components/FormCv';
+import DisplayCvData from './components/DisplayCvData';
 
 function App() {
   return (
-    <PrintingProvider>
-      <div className="App">
-        <Header />
-        <Combined />
-      </div>
-    </PrintingProvider>
+   
+    <div className="App">
+      <Router>
+        <Routes>
+          <Route exact path='/' element = {<AllComponents />} />
+          <Route exact path='/formCv' element = {<FormCv />} />
+         <Route path="/:id" element={<DisplayCvData/>} />
+        </Routes>
+      </Router>
+      
+    </div>
+
   );
 }
 

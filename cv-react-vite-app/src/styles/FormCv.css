@@ -1,0 +1,85 @@
+/* Container styles */
+.container {
+  width: 70%;
+  margin: auto;
+  padding: 20px;
+  background-color: #f4f4f4;
+}
+
+/* Form container styles */
+.formContainer {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Label styles */
+.label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+/* Input styles */
+.input {
+  width: 98%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Button styles */
+.btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 5px;
+  display: flex;
+  justify-content: center;
+  margin-left: 45%;
+
+}
+/* List styles */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* List item styles */
+li {
+  margin-bottom: 10px;
+}
+
+/* Remove button styles */
+.btn[type="button"] {
+  background-color: #dc3545;
+  margin-left: 10px;
+}
+
+/* Header styles */
+.form {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.nameLabel {
+  margin-top: 20px;
+}
+
+/* Section styles */
+section {
+  margin-bottom: 20px;
+}
+
+/* Optional: Center the form on the page */
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
