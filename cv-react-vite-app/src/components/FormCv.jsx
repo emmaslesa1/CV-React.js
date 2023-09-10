@@ -43,21 +43,7 @@ useEffect(() => {
     setCvDisplayData(data);
   });
 }, []);
-/*
-// Fetch CV data by ID when 'id' changes
-useEffect(() => {
-  // Fetch CV data using the 'id' extracted from route parameters
-  id && 
-  fetchCvDataById(id)
-    .then((data) => {
-      console.log('cv: ', data);
-      setCvDisplayData(data);
-    })
-    .catch((error) => {
-      console.error('Error fetching CV data: ', error);
-    });
-}, [id]); // Re-fetch data when 'id' changes
-*/
+
   const handleChangeWorkExerience = (e, index) => {
     const { name, value } = e.target;
     const updatedWorkExperiences = [...formData.workExperiences];
@@ -161,19 +147,7 @@ useEffect(() => {
     updatedLanguage.splice(index, 1);
     setFormData({ ...formData, languages: updatedLanguage });
   };
-/*
-  const createCvData = async (cvData) => {
-    try {
-      const cvCollectionRef = collection(db, 'cv');
-      const docRef = await addDoc(cvCollectionRef, cvData);
-      console.log('CV data added with ID: ', docRef.id);
-      return docRef.id; // Optionally, return the ID of the added document
-    } catch (error) {
-      console.error('Error adding CV data: ', error);
-      throw error;
-    }
-  };
-*/
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const cvData = {
@@ -191,19 +165,16 @@ useEffect(() => {
 
 
 
-  // Fetch the newly added CV data by document reference
   try {
-    // Add the CV data and get the document ID
+
     const cvDocumentId = await createCvData(cvData);
 
-    // Fetch the newly added CV data by document ID
     const cvDocumentRef = doc(db, 'cv', cvDocumentId);
     const docSnapshot = await getDoc(cvDocumentRef);
 
     if (docSnapshot.exists()) {
       const updatedCvData = docSnapshot.data();
       console.log('Updated CV data:', updatedCvData);
-      // Update the cvDisplayData state with the newly added data
       setCvDisplayData(updatedCvData);
       setIsDataSubmitted(true);
       navigate(`/${cvDocumentId}`);
@@ -214,16 +185,6 @@ useEffect(() => {
     console.error('Error submitting CV data: ', error);
   }
 
-  
-/*
-    const cvCollRef = collection(db, 'cv')
-    addDoc(cvCollRef, {formData}).then(response => {
-      console.log(response.id)
-    }).catch(error => {
-      console.log(error.message)
-    })
-    console.log(cvData); // Output the form data as an object
-    */
   };
 
   if(isDataSubmitted){

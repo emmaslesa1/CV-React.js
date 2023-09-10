@@ -1,7 +1,7 @@
 import { collection, getDocs, addDoc, doc, updateDoc, deleteDoc, getDoc } from 'firebase/firestore';
 import { db } from '../../firebase';
 
-// Create (Add) CV Data
+// Create CV Data
 export const createCvData = async (cvData) => {
   try {
     const cvCollectionRef = collection(db, 'cv');
@@ -14,7 +14,7 @@ export const createCvData = async (cvData) => {
   }
 };
 
-// Read (Fetch) CV Data
+
 // Read (Fetch) CV Data
 export const fetchCvData = async () => {
   try {

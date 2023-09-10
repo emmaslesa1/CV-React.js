@@ -54,6 +54,8 @@ li.open .more {
   }
 }
 
+
+
 @keyframes collapseMore {
   from {
     max-height: 0;

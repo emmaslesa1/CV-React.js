@@ -13,7 +13,7 @@ function App() {
       <Router>
         <Routes>
           <Route exact path='/' element = {<AllComponents />} />
-          <Route exact path='/formCv' element = {<FormCv />} />
+          <Route path='/formCv' element = {<FormCv />} />
          <Route path="/:id" element={<DisplayCvData/>} />
         </Routes>
       </Router>

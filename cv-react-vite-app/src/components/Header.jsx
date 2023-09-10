@@ -20,7 +20,7 @@ function Header() {
         Print Cv
       </button>
       
-      <Link to='formCv'>
+      <Link to='/formCv'>
       <button className="buttonAddCv">
         Add Cv
       </button>

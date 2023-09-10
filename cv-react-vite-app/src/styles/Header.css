@@ -223,10 +223,13 @@ button {
 }
 
 @media print {
-  
+  .buttonAddCv {
+    display: none;
+   }
 
   header {
-    margin: 0;
+    max-width: 80%;
+    margin: 0 auto; 
     page-break-before: always; 
     padding: 30px;
     
@@ -241,6 +244,9 @@ button {
    }
    .buttonGenerate {
      display: none;
+   }
+   .buttonAddCv {
+    display: none;
    }
  }
 
